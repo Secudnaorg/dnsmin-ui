@@ -2,7 +2,7 @@
 
 Built for Big DNS.
 
-An API service designed to provide advanced management and monitoring capabilities for the PowerDNS server suite.
+A user interface for the DNSMin API service used to manage the PowerDNS server suite.
 
 ***WARNING: This project is a work in progress and is NOT ready for production use!***
 
