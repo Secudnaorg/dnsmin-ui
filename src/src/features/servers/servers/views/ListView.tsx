@@ -56,6 +56,8 @@ const ListView = ({basePath}: ViewProps) => {
     const columns: readonly GridColDef<any>[] = [
         {field: 'id', headerName: 'Server ID', width: 300},
         {field: 'type', headerName: 'Type', width: 200},
+        {field: 'mode', headerName: 'Mode', width: 200},
+        {field: 'serverId', headerName: 'Server ID', width: 200},
         {field: 'version', headerName: 'Version', width: 150},
         {field: 'hostname', headerName: 'Hostname', width: 300},
         {field: 'apiUrl', headerName: 'API URL', width: 300},

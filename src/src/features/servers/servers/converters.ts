@@ -5,6 +5,8 @@ export function serverFromDTO(dto: IServerInDTO): IServer {
     return {
         id: dto.id,
         type: dto.type,
+        mode: dto.mode,
+        serverId: dto.server_id,
         version: dto.version,
         hostname: dto.hostname,
         apiUrl: dto.api_url,
@@ -19,6 +21,8 @@ export function serverToDTO(server: IServer): IServerOutDTO {
     return {
         id: server.id,
         type: server.type,
+        mode: server.mode,
+        server_id: server.serverId,
         version: server.version,
         hostname: server.hostname,
         api_url: server.apiUrl,

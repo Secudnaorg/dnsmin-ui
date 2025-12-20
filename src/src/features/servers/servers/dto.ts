@@ -3,6 +3,8 @@ import {BaseDTO} from "@app/types/dto";
 export interface ServerInDTO extends BaseDTO {
     id: string;
     type: string;
+    mode: string;
+    server_id: string;
     version: string;
     hostname: string;
     api_url: string;
@@ -15,6 +17,8 @@ export interface ServerInDTO extends BaseDTO {
 export interface ServerOutDTO extends BaseDTO {
     id?: string;
     type: string;
+    mode: string;
+    server_id: string;
     version: string;
     hostname: string;
     api_url: string;

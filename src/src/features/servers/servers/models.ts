@@ -3,6 +3,8 @@ import {ModelBase} from "@app/types/models";
 export interface Server extends ModelBase {
     id?: string;
     type: string;
+    mode: string;
+    serverId: string;
     version: string;
     hostname: string;
     apiUrl: string;
