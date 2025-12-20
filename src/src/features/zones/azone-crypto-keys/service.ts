@@ -13,30 +13,30 @@ export const AZoneCryptoKeysService = {
         } : {};
 
         const response = await getApi().post<ICryptoKeysPagedResponseDTO>(
-            `/crypto-keys/authoritative/${zoneId}/crypto-keys/search`, params
+            `/zones/authoritative/${zoneId}/crypto-keys/search`, params
         );
 
         return cryptoKeysPagedFromDTO(response.data);
     },
 
     async get(zoneId: string, id: string): Promise<IAZoneCryptoKey> {
-        const response = await getApi().get<ICryptoKeyInDTO>(`/crypto-keys/authoritative/${zoneId}/crypto-keys/${id}`);
+        const response = await getApi().get<ICryptoKeyInDTO>(`/zones/authoritative/${zoneId}/crypto-keys/${id}`);
         return cryptoKeyFromDTO(response.data);
     },
 
     async create(zoneId: string, payload: Omit<IAZoneCryptoKey, "id">): Promise<IAZoneCryptoKey> {
         const dtoPayload = cryptoKeyToDTO(payload as IAZoneCryptoKey);
-        const response = await getApi().post<ICryptoKeyInDTO>(`/crypto-keys/authoritative/${zoneId}/crypto-keys`, dtoPayload);
+        const response = await getApi().post<ICryptoKeyInDTO>(`/zones/authoritative/${zoneId}/crypto-keys`, dtoPayload);
         return cryptoKeyFromDTO(response.data);
     },
 
     async update(zoneId: string, id: string, payload: Partial<IAZoneCryptoKey>): Promise<IAZoneCryptoKey> {
         const dtoPayload = cryptoKeyToDTO(payload as IAZoneCryptoKey);
-        const response = await getApi().put<ICryptoKeyInDTO>(`/crypto-keys/authoritative/${zoneId}/crypto-keys/${id}`, dtoPayload);
+        const response = await getApi().put<ICryptoKeyInDTO>(`/zones/authoritative/${zoneId}/crypto-keys/${id}`, dtoPayload);
         return cryptoKeyFromDTO(response.data);
     },
 
     async remove(zoneId: string, id: string): Promise<void> {
-        await getApi().delete(`/crypto-keys/authoritative/${zoneId}/crypto-keys/${id}`);
+        await getApi().delete(`/zones/authoritative/${zoneId}/crypto-keys/${id}`);
     },
 };

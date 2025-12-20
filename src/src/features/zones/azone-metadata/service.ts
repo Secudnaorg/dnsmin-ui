@@ -13,30 +13,30 @@ export const AZoneMetadataService = {
         } : {};
 
         const response = await getApi().post<IAZoneMetadataPagedResponseDTO>(
-            `/metadata/authoritative/${zoneId}/metadata/search`, params
+            `/zones/authoritative/${zoneId}/metadata/search`, params
         );
 
         return metadataPagedFromDTO(response.data);
     },
 
     async get(zoneId: string, id: string): Promise<IAZoneMetadata> {
-        const response = await getApi().get<IAZoneMetadataInDTO>(`/metadata/authoritative/${zoneId}/metadata/${id}`);
+        const response = await getApi().get<IAZoneMetadataInDTO>(`/zones/authoritative/${zoneId}/metadata/${id}`);
         return metadataFromDTO(response.data);
     },
 
     async create(zoneId: string, payload: Omit<IAZoneMetadata, "id">): Promise<IAZoneMetadata> {
         const dtoPayload = metadataToDTO(payload as IAZoneMetadata);
-        const response = await getApi().post<IAZoneMetadataInDTO>(`/metadata/authoritative/${zoneId}/metadata`, dtoPayload);
+        const response = await getApi().post<IAZoneMetadataInDTO>(`/zones/authoritative/${zoneId}/metadata`, dtoPayload);
         return metadataFromDTO(response.data);
     },
 
     async update(zoneId: string, id: string, payload: Partial<IAZoneMetadata>): Promise<IAZoneMetadata> {
         const dtoPayload = metadataToDTO(payload as IAZoneMetadata);
-        const response = await getApi().put<IAZoneMetadataInDTO>(`/metadata/authoritative/${zoneId}/metadata/${id}`, dtoPayload);
+        const response = await getApi().put<IAZoneMetadataInDTO>(`/zones/authoritative/${zoneId}/metadata/${id}`, dtoPayload);
         return metadataFromDTO(response.data);
     },
 
     async remove(zoneId: string, id: string): Promise<void> {
-        await getApi().delete(`/metadata/authoritative/${zoneId}/metadata/${id}`);
+        await getApi().delete(`/zones/authoritative/${zoneId}/metadata/${id}`);
     },
 };
