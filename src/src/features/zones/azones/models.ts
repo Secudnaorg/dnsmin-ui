@@ -23,6 +23,7 @@ export interface AZone extends ModelBase {
     masterTsigKeyIds?: string[] | null;
     slaveTsigKeyIds?: string[] | null;
     shared: boolean;
+    purged?: boolean | null;
     createdAt?: string | null;
     updatedAt?: string | null;
 }

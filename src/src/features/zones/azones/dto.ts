@@ -23,6 +23,7 @@ export interface AZoneInDTO extends BaseDTO {
     master_tsig_key_ids: string[] | null;
     slave_tsig_key_ids: string[] | null;
     shared: boolean;
+    purged: boolean | null;
     created_at: string;
     updated_at: string | null;
 }
@@ -50,6 +51,7 @@ export interface AZoneOutDTO extends BaseDTO {
     master_tsig_key_ids?: string[] | null;
     slave_tsig_key_ids?: string[] | null;
     shared: boolean;
+    purged?: boolean | null;
 }
 
 export interface AZonesPagedResponseDTO extends BaseDTO {

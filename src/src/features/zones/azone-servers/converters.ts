@@ -11,6 +11,7 @@ export function zoneServerFromDTO(dto: IAZoneServerInDTO): IAZoneServer {
         syncPolicy: zoneSyncPolicyFromDTO(dto.sync_policy),
         createdAt: dto.created_at,
         updatedAt: dto.updated_at,
+        synchronizedAt: dto.synchronized_at,
     }
 }
 

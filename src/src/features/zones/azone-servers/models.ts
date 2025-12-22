@@ -9,6 +9,7 @@ export interface AZoneServer extends ModelBase {
     syncPolicy: IZoneSyncPolicy | null;
     createdAt?: string | null;
     updatedAt?: string | null;
+    synchronizedAt?: string | null;
 }
 
 export interface AZoneServersPaged extends ModelBase {

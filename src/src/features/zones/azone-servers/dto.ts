@@ -9,6 +9,7 @@ export interface AZoneServerInDTO extends BaseDTO {
     sync_policy: IZoneSyncPolicyDTO | null;
     created_at: string;
     updated_at: string | null;
+    synchronized_at: string | null;
 }
 
 export interface AZoneServerOutDTO extends BaseDTO {

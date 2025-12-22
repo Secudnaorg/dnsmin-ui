@@ -25,6 +25,7 @@ export function zoneFromDTO(dto: IAZoneInDTO): IAZone {
         masterTsigKeyIds: dto.master_tsig_key_ids,
         slaveTsigKeyIds: dto.slave_tsig_key_ids,
         shared: dto.shared,
+        purged: dto.purged,
         createdAt: dto.created_at,
         updatedAt: dto.updated_at,
     }
@@ -54,6 +55,7 @@ export function zoneToDTO(zone: IAZone): IAZoneOutDTO {
         master_tsig_key_ids: zone.masterTsigKeyIds,
         slave_tsig_key_ids: zone.slaveTsigKeyIds,
         shared: zone.shared,
+        purged: zone.purged,
     }
 }
 
