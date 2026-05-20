@@ -63,7 +63,7 @@ const formReqs: formRequirements = {
     phoneMaxLength: 15,
     statusRequired: true,
     tenantIdRequired: false,
-    tenantIdLength: 32,
+    tenantIdLength: 36,
 };
 
 const getValidationSchema = (isEdit: boolean) => {
@@ -282,24 +282,14 @@ export const FormDialog: React.FC<FormDialogProps> = ({basePath}) => {
                                                         <FormHelperText>{form.errors.status?.toString()}</FormHelperText>
                                                     </FormControl>
 
-                                                    <FormControl fullWidth variant="outlined">
-                                                        <InputLabel id="tenant-label">Tenant</InputLabel>
-                                                        <Select
-                                                            labelId="tenant-label"
-                                                            id="tenant"
-                                                            label="Tenant"
-                                                            {...form.getFieldProps('tenantId')}
-                                                            error={form.errors.tenantId !== undefined}
-                                                        >
-                                                            <MenuItem value="">
-                                                                <em>None</em>
-                                                            </MenuItem>
-                                                            <MenuItem value={'t1'}>Tenant 1</MenuItem>
-                                                            <MenuItem value={'t2'}>Tenant 2</MenuItem>
-                                                            <MenuItem value={'t3'}>Tenant 3</MenuItem>
-                                                        </Select>
-                                                        <FormHelperText>{form.errors.tenantId?.toString()}</FormHelperText>
-                                                    </FormControl>
+                                                    <TextField
+                                                        label="Tenant ID"
+                                                        variant="outlined"
+                                                        fullWidth
+                                                        {...form.getFieldProps('tenantId')}
+                                                        error={form.errors.tenantId !== undefined}
+                                                        helperText={form.errors.tenantId?.toString()}
+                                                    />
                                                 </Stack>
                                             </Grid>
                                             <Grid size={{xs: 12, md: 6}}>

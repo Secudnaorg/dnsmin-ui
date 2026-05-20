@@ -19,6 +19,12 @@ interface RouterRoute {
 
 const routes: RouterRoute[] = [
     {path: '/', component: AuditsIndexPage, title: 'Audits Management'},
+    {path: '/clients', component: AuditsIndexPage, title: 'API Client Audits'},
+    {path: '/users', component: AuditsIndexPage, title: 'User Audits'},
+    {path: '/servers', component: AuditsIndexPage, title: 'Server Audits'},
+    {path: '/zones', component: AuditsIndexPage, title: 'Zone Audits'},
+    {path: '/synchronization', component: AuditsIndexPage, title: 'Synchronization Audits'},
+    {path: '/tasks', component: AuditsIndexPage, title: 'Task Audits'},
 ];
 
 const Router: React.FC<RouterProps> = ({basePath}) => {

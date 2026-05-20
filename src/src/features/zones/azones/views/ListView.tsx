@@ -4,6 +4,7 @@ import {useNavigate} from "react-router-dom";
 import {Button, Grid} from "@mui/material";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
+import DnsIcon from "@mui/icons-material/Dns";
 import {
     DataGridPro,
     GridFilterModel,
@@ -16,6 +17,8 @@ import {
 import {useAZones} from "@app/features/zones/azones/hooks";
 import PageHeader from "@components/PageHeader";
 import StatisticCard from "@components/cards/StatisticCard";
+import FormDialog from "@app/features/zones/azones/components/FormDialog";
+import DeleteDialog from "@app/features/zones/azones/components/DeleteDialog";
 
 
 interface ViewProps {
@@ -53,10 +56,12 @@ const ListView = ({basePath}: ViewProps) => {
         navigate(`${basePath}/${id}/delete`);
     };
 
+    const openRecords = (id: string) => {
+        navigate(`${basePath}/${id}/records`);
+    };
+
     const columns: readonly GridColDef<any>[] = [
         {field: 'id', headerName: 'Zone ID', width: 150},
-        {field: 'tenantId', headerName: 'Tenant ID', width: 150},
-        {field: 'viewId', headerName: 'View ID', width: 150},
         {field: 'fqdn', headerName: 'FQDN', width: 200},
         {field: 'kind', headerName: 'Type', width: 200},
         {field: 'serial', headerName: 'Serial', width: 150},
@@ -72,6 +77,13 @@ const ListView = ({basePath}: ViewProps) => {
             headerName: 'Actions',
             width: 100,
             getActions: (params) => [
+                <GridActionsCellItem
+                    key="records"
+                    icon={<DnsIcon/>}
+                    label="Records"
+                    onClick={() => openRecords(params.row.id)}
+                    showInMenu
+                />,
                 <GridActionsCellItem
                     key="edit"
                     icon={<EditIcon/>}
@@ -137,6 +149,8 @@ const ListView = ({basePath}: ViewProps) => {
                     />
                 </Grid>
             </Grid>
+            <FormDialog basePath={basePath}/>
+            <DeleteDialog basePath={basePath}/>
         </>
     );
 };

@@ -1,5 +1,6 @@
 export interface AppConfig {
     apiBaseUrl: string;
+    tenantId?: string;
 }
 
 let config: AppConfig | null = null;

@@ -21,7 +21,6 @@ export const navItems: NavItem[] = [
     },
     {key: 'servers', label: 'Servers', path: '/servers', children: [
             {key: 'servers', label: 'Servers', path: '/servers'},
-            {key: 'server-tenants', label: 'Tenants', path: '/tenants'},
         ]
     },
     {key: 'zones', label: 'Zones', path: '/zones', children: [

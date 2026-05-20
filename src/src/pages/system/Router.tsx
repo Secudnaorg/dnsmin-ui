@@ -28,6 +28,19 @@ const routes: RouterRoute[] = [
     {path: '/stopgap-domains', basePath: '/stopgap-domains', component: StopgapDomainsListView, title: 'Stopgap Domains'},
     {path: '/timezones', basePath: '/timezones', component: TimezonesListView, title: 'Timezones'},
     {path: '/tenants', basePath: '/tenants', component: TenantsListView, title: 'Tenants'},
+    {path: '/tenants/:action', basePath: '/tenants', component: TenantsListView, title: 'Create Tenant - Tenants'},
+    {
+        path: '/tenants/:recordId/:action',
+        basePath: '/tenants',
+        component: TenantsListView,
+        title: 'Update Tenant - Tenants'
+    },
+    {
+        path: '/tenants/:recordId/:action',
+        basePath: '/tenants',
+        component: TenantsListView,
+        title: 'Delete Tenant - Tenants'
+    },
     {path: '/clients', basePath: '/clients', component: ClientsListView, title: 'API Clients'},
     {
         path: '/clients/:action',

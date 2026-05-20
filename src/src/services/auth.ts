@@ -7,6 +7,12 @@ class AuthService {
     private currentUser: IUser | null = null;
     private subscribers: Set<AuthCallback> = new Set();
 
+    private getHeaders(): HeadersInit | undefined {
+        const {tenantId} = getConfig();
+
+        return tenantId ? {'X-Tenant-Id': tenantId} : undefined;
+    }
+
     onAuthStateChanged(callback: AuthCallback): () => void {
         this.subscribers.add(callback);
 
@@ -27,6 +33,7 @@ class AuthService {
             const response = await fetch(getConfig().apiBaseUrl + '/v1/user/session', {
                 method: 'GET',
                 credentials: 'include',
+                headers: this.getHeaders(),
             });
 
             const result = await response.json();
@@ -62,6 +69,7 @@ class AuthService {
             const response = await fetch(getConfig().apiBaseUrl + '/v1/user/login', {
                 method: 'POST',
                 credentials: 'include',
+                headers: this.getHeaders(),
                 body: payload,
             });
 
@@ -94,6 +102,7 @@ class AuthService {
             const response = await fetch(getConfig().apiBaseUrl + '/v1/user/logout', {
                 method: 'GET',
                 credentials: 'include',
+                headers: this.getHeaders(),
             });
 
             const result = await response.json();

@@ -16,6 +16,8 @@ import {
 import {useTenants} from "@app/features/tenants/tenants/hooks";
 import PageHeader from "@components/PageHeader";
 import StatisticCard from "@components/cards/StatisticCard";
+import FormDialog from "@app/features/tenants/tenants/components/FormDialog";
+import DeleteDialog from "@app/features/tenants/tenants/components/DeleteDialog";
 
 
 interface ViewProps {
@@ -132,6 +134,8 @@ const ListView = ({basePath}: ViewProps) => {
                     />
                 </Grid>
             </Grid>
+            <FormDialog basePath={basePath}/>
+            <DeleteDialog basePath={basePath}/>
         </>
     );
 };

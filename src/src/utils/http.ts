@@ -5,9 +5,13 @@ let api: AxiosInstance | null = null;
 
 export const getApi = (): AxiosInstance => {
     if (!api) {
+        const config = getConfig();
         api = axios.create({
-            baseURL: getConfig().apiBaseUrl + '/v1',
+            baseURL: config.apiBaseUrl + '/v1',
             withCredentials: true,
+            headers: config.tenantId ? {
+                'X-Tenant-Id': config.tenantId,
+            } : undefined,
         });
         api.interceptors.response.use(
             (res) => res,

@@ -19,6 +19,10 @@ interface RouterRoute {
 
 const routes: RouterRoute[] = [
     {path: '/', component: SettingsIndexPage, title: 'Settings Management'},
+    {path: '/ui', component: SettingsIndexPage, title: 'User Interface Settings'},
+    {path: '/registration', component: SettingsIndexPage, title: 'Registration Settings'},
+    {path: '/authentication', component: SettingsIndexPage, title: 'Authentication Settings'},
+    {path: '/synchronization', component: SettingsIndexPage, title: 'Synchronization Settings'},
 ];
 
 const Router: React.FC<RouterProps> = ({basePath}) => {
